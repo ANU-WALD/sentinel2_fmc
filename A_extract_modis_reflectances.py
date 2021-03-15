@@ -48,7 +48,7 @@ for _, row in df.iterrows():
     print(modis_glob, h, v, i, j)
     modis_tiles = glob(modis_glob)
     if len(modis_tiles) != 1:
-        sys.exit(1)
+        continue
 
     with xr.open_dataset(modis_tiles[0]) as ds:
         for i in [1,2,4,6,7]:
