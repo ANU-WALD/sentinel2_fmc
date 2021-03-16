@@ -4,7 +4,7 @@
 #PBS -l mem=144GB
 #PBS -q normal
 #PBS -P di09
-#PBS -l walltime=03:00:00
+#PBS -l walltime=12:00:00
 #PBS -l storage=gdata/xc0+gdata/ub8
 #PBS -l wd
   
