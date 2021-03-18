@@ -1,0 +1,13 @@
+
+======================================================================================
+                  Resource Usage on 2021-03-18 12:11:36:
+   Job Id:             19242068.gadi-pbs
+   Project:            di09
+   Exit Status:        0
+   Service Units:      158.76
+   NCPUs Requested:    1                      NCPUs Used: 1               
+                                           CPU Time Used: 02:07:34                                   
+   Memory Requested:   144.0GB               Memory Used: 76.67GB         
+   Walltime requested: 03:00:00            Walltime Used: 02:12:18        
+   JobFS requested:    100.0MB                JobFS used: 0B              
+======================================================================================

@@ -27,7 +27,14 @@ df = pd.read_csv('modis_fmc_selection.csv')
 
 dfi = pd.DataFrame(columns=['time','latitude','longitude','id','veg_type','1','2','4','6','7','fmc_mean'])
 
-for _, row in df.iterrows():
+n = 10
+for count, row in df.iterrows():
+    sector = count // 100000
+    if sector < n-1:
+        continue
+    if sector > n-1:
+        break
+    
     out = {'time':row['time'], 'longitude':row['longitude'], 'latitude':row['latitude'], 'id':row['id'], 'veg_type':row['veg_type'], 'fmc_mean':row['fmc_mean']}
     d = datetime.strptime(row['time'], "%Y-%m-%d")
     x, y = transform(inProj,outProj, row['longitude'], row['latitude'])
@@ -42,9 +49,8 @@ for _, row in df.iterrows():
 
     with xr.open_dataset(modis_tiles[0]) as ds:
         for i in [1,2,4,6,7]:
-            print(i, ds[f"Nadir_Reflectance_Band{i}"].isel({'XDim:MOD_Grid_BRDF':i, 'YDim:MOD_Grid_BRDF':j}).values)
             out[str(i)] = ds[f"Nadir_Reflectance_Band{i}"].isel({'XDim:MOD_Grid_BRDF':i, 'YDim:MOD_Grid_BRDF':j}).values
 
     dfi = dfi.append(out, ignore_index=True) 
 
-dfi.to_csv("modis_reflectances.csv", float_format='%.4f')
+dfi.to_csv(f"modis_reflectances_s{n}.csv", float_format='%.4f')

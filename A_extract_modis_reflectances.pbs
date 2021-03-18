@@ -4,8 +4,8 @@
 #PBS -l mem=144GB
 #PBS -q normal
 #PBS -P di09
-#PBS -l walltime=12:00:00
-#PBS -l storage=gdata/xc0+gdata/ub8
+#PBS -l walltime=3:00:00
+#PBS -l storage=gdata/u39+gdata/xc0+gdata/ub8
 #PBS -l wd
   
 /g/data/xc0/software/python/miniconda3/bin/python A_extract_modis_reflectances.py
