@@ -1,0 +1,6 @@
+setup.py
+fmc_tools.egg-info/PKG-INFO
+fmc_tools.egg-info/SOURCES.txt
+fmc_tools.egg-info/dependency_links.txt
+fmc_tools.egg-info/entry_points.txt
+fmc_tools.egg-info/top_level.txt

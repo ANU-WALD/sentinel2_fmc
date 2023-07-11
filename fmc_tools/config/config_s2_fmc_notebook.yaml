@@ -1,0 +1,23 @@
+plugin: fmc_tools.ml_pred.PredS2FMC
+plugin_config:
+    urls:
+      model: ///home/jovyan/git/sentinel2_fmc/rf_fmc.pickle
+product:
+  name: fmc_s2
+  short_name: fmc_s2
+  version: 1.0.0
+  product_family: ga_s2am_ard_3
+  collections_site: explorer.digitalearth.australia
+  producer: digitalearthaustralia.org
+  region_code_format: "x{x:03d}y{y:03d}"
+# computing resources
+threads: 2
+memory_limit: 16Gi
+max_processing_time: 3600
+job_queue_max_lease: 3600
+renew_safety_margin: 60
+future_poll_interval: 2
+s3_acl: bucket-owner-full-control
+# Generic product attributes
+cog_opts:
+  zlevel: 4

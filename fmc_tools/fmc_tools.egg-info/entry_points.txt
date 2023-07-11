@@ -1,0 +1,2 @@
+[console_scripts]
+fmc-task = fmc_tools.geojson_defined_tasks:main
