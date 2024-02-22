@@ -8,7 +8,7 @@ ds = xr.open_mfdataset([f"/g/data/ub8/au/FMC/c6/mosaics/mask_{y}.nc" for y in ra
 #ds = ds.isel(longitude=slice(4000,4500), latitude=slice(4000,4500))
 
 veg_map_mask = ds.quality_mask.where(ds.quality_mask == ds.quality_mask.isel(time=0)).all(dim='time') # pixel value == True if veg classification never changes across years
-veg_map = ds.quality_mask.isel(time=0).where(veg_map_mask) # select veg mask persistent across years (with pixels values corresponding to veg id, PROBABLY quality_mask is actually a vegetation type mask) 
+veg_map = ds.quality_mask.isel(time=0).where(veg_map_mask) # restrict veg mask to persistent veg type across years (with pixels values corresponding to veg id, PROBABLY quality_mask is actually a vegetation type mask) 
 #print(np.sum(veg_map.values==1))
     
 ds = xr.open_mfdataset([f"/g/data/ub8/au/FMC/c6/mosaics/fmc_c6_{y}.nc" for y in range(2015,2019)])
