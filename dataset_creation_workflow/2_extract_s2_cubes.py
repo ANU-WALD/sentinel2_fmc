@@ -19,7 +19,7 @@ df = pd.read_csv('modis_fmc_selection.csv')
 df = df.set_index(['latitude', 'longitude', 'id'])
 
 for lat, lon, uid in df.index.unique():
-    if os.path.isfile(f"/g/data/xc0/user/pablo/{uid}.nc"):
+    if os.path.isfile(f"/g/data/xc0/user/pablo/{uid}.nc"): # if file is already existing
         continue
 
     if int(uid[0])!=args.veg_type: # uid is V_XXX where V is the veg type and XXX is the sequence number identifying each of the 1000 samples, so index 0 is veg type
